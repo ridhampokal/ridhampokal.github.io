@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - VizHance</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.6;
+      }
+
+      /* Navigation */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background-color: #fff;
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #000;
+        text-decoration: none;
+        flex: 1;
+      }
+
+      .logo span {
+        color: #00ff9d;
+      }
+
+      /* Logo */
+      .logo-img {
+        max-height: 40px; /* Adjust the height of the logo */
+        width: auto;
+        display: block;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        flex: 2;
+      }
+
+      .nav-menu a {
+        color: #000;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-menu a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #00ff9d;
+        transition: width 0.3s ease;
+      }
+      .nav-menu a.active::after {
+        width: 100%;
+      }
+      .nav-menu a:hover::after {
+        width: 100%;
+      }
+
+      .get-quote-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .get-quote {
+        background-color: #00ff9d;
+        color: #000;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .get-quote:hover {
+        background-color: #00cc7d;
+      }
+
+      /* Main Content */
+      .main-content {
+        padding-top: 100px;
+        min-height: calc(100vh - 400px);
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: flex;
+        gap: 4rem;
+      }
+
+      /* Left Section */
+      .contact-info {
+        flex: 1;
+      }
+
+      .subtitle {
+        color: #00ff9d;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .title {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .description {
+        color: #666;
+        font-size: 1.1rem;
+        max-width: 500px;
+      }
+
+      /* Contact Form */
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem; /* Space between elements */
+        flex: 1;
+        /* background-color: #00ff9d;
+         */
+        background: rgb(0, 255, 135);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 255, 135, 1) 0%,
+          rgba(96, 239, 255, 1) 100%
+        );
+        padding: 2rem;
+        border-radius: 1rem;
+      }
+      .form-title {
+        align-self: flex-start; /* Align heading to the left */
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .form-full {
+        grid-column: 1 / -1;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      textarea.form-input {
+        height: 150px;
+        resize: vertical;
+      }
+
+      /* Custom styled checkbox */
+      .checkbox-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex: 1;
+      }
+
+      .checkbox-container input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        border: 2px solid #0000007b;
+        background-color: #fff;
+        position: relative;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s;
+      }
+
+      .checkbox-container input[type="checkbox"]:checked {
+        background-color: #00ff9d;
+        border-color: #00ff9d;
+      }
+
+      .checkbox-container input[type="checkbox"]:checked::before {
+        content: "✔";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 14px;
+        color: white;
+      }
+
+      .checkbox-container label {
+        font-size: 1rem;
+        color: #666;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .submit-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem; /* Space between checkbox and button */
+      }
+
+      .submit-btn {
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #000;
+        color: #fff;
+        padding: 80px 5% 40px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer h3 {
+        font-size: 24px;
+        margin-bottom: 24px;
+        font-weight: 500;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 16px;
+      }
+
+      .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: #00ff9d;
+      }
+
+      .copyright {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5vh;
+        text-align: center;
+        font-weight: 500;
+        padding: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: #fff;
+      }
+
+      .copyright-text {
+        align-items: center;
+        justify-content: center;
+        color: #000;
+      }
+
+      .image-box {
+        margin-top: 25%;
+        margin-right: 15vw;
+        margin-left: -5vw;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .contact-container {
+          flex-direction: column;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .title {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="/" class="logo">
+        <img src="/Vizhance logo.png" alt="VizHance Logo" class="logo-img" />
+      </a>
+      <div class="nav-menu">
+        <a href="./work.html">Work</a>
+        <a href="./services.html">Services</a>
+        <!-- <a href="#blog">Blog</a> -->
+        <a href="./about.html">About</a>
+        <!-- <a href="#faqs">FAQs</a> -->
+        <a href="./contact.html" class="active">Contact Us</a>
+      </div>
+      <div class="get-quote-wrapper">
+        <a href="#quote" class="get-quote">Get Quote</a>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div class="contact-container">
+        <div class="contact-info">
+          <p class="subtitle">Get To Know Us</p>
+          <h1 class="title">Have A Project In Mind? Let's Talk.</h1>
+          <p class="description">
+            Our graphic design services bring your ideas to life through
+            visually stunning and effective designs. From branding and logos to
+            marketing materials and web graphics, we work with you to create
+            designs that make an impact and help your business stand out. Let's
+            collaborate and bring your vision to reality.
+          </p>
+        </div>
+
+        <div class="contact-form">
+          <h2 class="form-title">Send A Message</h2>
+          <form>
+            <div class="form-grid">
+              <input
+                type="text"
+                class="form-input"
+                placeholder="Your Name"
+                required
+              />
+              <input
+                type="email"
+                class="form-input"
+                placeholder="Your Email"
+                required
+              />
+              <input type="url" class="form-input" placeholder="Your Website" />
+              <input type="tel" class="form-input" placeholder="Phone number" />
+              <textarea
+                class="form-input form-full"
+                placeholder="Comment"
+                required
+              ></textarea>
+            </div>
+            <div class="submit-container">
+              <div class="checkbox-container">
+                <input type="checkbox" id="save-info" />
+                <label for="save-info"
+                  >Save my email and name for next time</label
+                >
+              </div>
+              <button type="submit" class="submit-btn">Submit</button>
+            </div>
+          </form>
+
+          <!-- <button type="submit" class="submit-btn">Submit</button> -->
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="image-box">
+          <img
+            src="./logo.png"
+            alt="VizHance Logo"
+            style="margin-bottom: 8px"
+          />
+          <!-- <p style="color: #666; font-size: 12px">ENHANCE YOUR BRANDING</p> -->
+        </div>
+        <div>
+          <h3>Location</h3>
+          <p>Orbit, Saroli Rd,<br />Punagam, Surat.</p>
+        </div>
+        <div>
+          <h3>Call Us</h3>
+          <p>+91 97126 99999</p>
+          <p>+91 94658 11658</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/about">About</a></li>
+            <!-- <li><a href="/faqs">FAQs</a></li> -->
+            <li><a href="/contact">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <div class="copyright">
+      <p class="copyright-text">
+        VizHance © Copyright 2023 All Rights Reserved.
+      </p>
+    </div>
+  </body>
+</html>

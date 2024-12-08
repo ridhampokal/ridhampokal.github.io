@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - VizHance</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+      }
+
+      body {
+        background-color: #000;
+        color: #fff;
+        line-height: 1.6;
+      }
+
+      /* Navigation */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+        flex: 1;
+      }
+
+      .logo span {
+        color: #00ff9d;
+      }
+
+      .logo-img {
+        max-height: 40px; /* Adjust the height of the logo */
+        width: auto;
+        display: block;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        flex: 2;
+      }
+
+      .nav-menu a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-menu a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #00ff9d;
+        transition: width 0.3s ease;
+      }
+      .nav-menu a.active::after {
+        width: 100%;
+      }
+      .nav-menu a:hover::after {
+        width: 100%;
+      }
+
+      .get-quote-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .get-quote {
+        background-color: #00ff9d;
+        color: #000;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .get-quote:hover {
+        background-color: #00cc7d;
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 100px 5% 50px;
+        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: repeating-linear-gradient(
+          to right,
+          transparent 0px,
+          transparent calc(100% / 9 - 1px),
+          rgba(255, 255, 255, 0.1) calc(100% / 9 - 1px),
+          rgba(255, 255, 255, 0.1) calc(100% / 9)
+        );
+        pointer-events: none;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        font-weight: 600;
+      }
+
+      .hero p {
+        color: #666;
+        font-size: 18px;
+      }
+
+      /* Image Strip */
+      .image-strip {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 24px;
+        padding: 0 5%;
+        margin-bottom: 80px;
+      }
+
+      .image-strip img {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        filter: grayscale(100%);
+      }
+
+      /* Team Section */
+      .team {
+        padding: 80px 5% 10px;
+        text-align: center;
+        /* max-width: 1200px; */
+        margin: 0 auto;
+        background-color: #fff;
+        width: 100%;
+      }
+
+      .team-label {
+        color: #00ff9d;
+        font-size: 14px;
+        margin-bottom: 24px;
+        text-transform: uppercase;
+      }
+
+      .team h2 {
+        font-size: 40px;
+        margin-bottom: 24px;
+        font-weight: 600;
+        color: #000;
+      }
+
+      .team-description {
+        color: #666;
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 64px;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        margin-bottom: 80px;
+      }
+
+      .team-member {
+        text-align: left;
+      }
+
+      .team-member img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        margin-bottom: 16px;
+      }
+
+      .team-member h3 {
+        font-size: 18px;
+        margin-bottom: 2px;
+        color: #000;
+      }
+
+      .team-member .position {
+        color: black;
+        margin-bottom: 8px;
+      }
+
+      .team-member .bio {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      /* Work Life Balance */
+      .work-life {
+        padding: 30px 18% 60px;
+        text-align: center;
+        /* max-width: 1200px; */
+        margin: 0 auto;
+        background-color: #fff;
+      }
+
+      .work-life h2 {
+        font-size: 40px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: #000;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #000;
+        color: #fff;
+        padding: 80px 5% 40px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer h3 {
+        font-size: 24px;
+        margin-bottom: 24px;
+        font-weight: 500;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 16px;
+      }
+
+      .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: #00ff9d;
+      }
+
+      .copyright {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5vh;
+        text-align: center;
+        font-weight: 500;
+        padding: 50px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: #fff;
+      }
+
+      .copyright-text {
+        align-items: center;
+        justify-content: center;
+        color: #000;
+      }
+
+      .image-box {
+        margin-top: 25%;
+        margin-right: 15vw;
+        margin-left: -5vw;
+      }
+      @media (max-width: 1024px) {
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .image-strip {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 36px;
+        }
+
+        .image-strip {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+
+        .work-life h2 {
+          font-size: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="/" class="logo">
+        <img src="/logo.png" alt="VizHance Logo" class="logo-img" />
+      </a>
+      <div class="nav-menu">
+        <a href="./work.html">Work</a>
+        <a href="./services.html">Services</a>
+        <!-- <a href="#blog">Blog</a> -->
+        <a href="./about.html" class="active">About</a>
+        <!-- <a href="#faqs">FAQs</a> -->
+        <a href="./contact.html">Contact Us</a>
+      </div>
+      <div class="get-quote-wrapper">
+        <a href="#quote" class="get-quote">Get Quote</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1>We are a graphic design company for visually compelling stories.</h1>
+      <p>
+        We've got an entire team dedicated to supporting you and your business.
+      </p>
+    </section>
+
+    <div class="image-strip">
+      <img src="/image3.png" alt="Office corridor" />
+      <img src="/image3.png" alt="Team photo" />
+      <img src="/image3.png" alt="Business meeting" />
+      <img src="/image3.png" alt="Team collaboration" />
+      <img src="/image3.png" alt="Office work" />
+    </div>
+
+    <section class="team">
+      <p class="team-label">// OUR TEAM</p>
+      <h2>We are the people who make up VizHance.</h2>
+      <p class="team-description">
+        Our philosophy is simple; hire great people and give them the resources
+        and support to do their best work.
+      </p>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="/image4.png" alt="Viral Kachhadiya" />
+          <h3>Viral Kachhadiya</h3>
+          <p class="position">Founder & CEO</p>
+          <p class="bio">
+            Former co-founder of Opendoor. Early staff at Spotify and Clearbit.
+          </p>
+        </div>
+        <div class="team-member">
+          <img src="/image4.png" alt="Viral Kachhadiya" />
+          <h3>Viral Kachhadiya</h3>
+          <p class="position">Founder & CEO</p>
+          <p class="bio">
+            Former co-founder of Opendoor. Early staff at Spotify and Clearbit.
+          </p>
+        </div>
+        <div class="team-member">
+          <img src="/image4.png" alt="Viral Kachhadiya" />
+          <h3>Viral Kachhadiya</h3>
+          <p class="position">Founder & CEO</p>
+          <p class="bio">
+            Former co-founder of Opendoor. Early staff at Spotify and Clearbit.
+          </p>
+        </div>
+        <div class="team-member">
+          <img src="/image4.png" alt="Viral Kachhadiya" />
+          <h3>Viral Kachhadiya</h3>
+          <p class="position">Founder & CEO</p>
+          <p class="bio">
+            Former co-founder of Opendoor. Early staff at Spotify and Clearbit.
+          </p>
+        </div>
+        <div class="team-member">
+          <img src="/image4.png" alt="Viral Kachhadiya" />
+          <h3>Viral Kachhadiya</h3>
+          <p class="position">Founder & CEO</p>
+          <p class="bio">
+            Former co-founder of Opendoor. Early staff at Spotify and Clearbit.
+          </p>
+        </div>
+        <div class="team-member">
+          <img src="/image4.png" alt="Viral Kachhadiya" />
+          <h3>Viral Kachhadiya</h3>
+          <p class="position">Founder & CEO</p>
+          <p class="bio">
+            Former co-founder of Opendoor. Early staff at Spotify and Clearbit.
+          </p>
+        </div>
+        <div class="team-member">
+          <img src="/image4.png" alt="Viral Kachhadiya" />
+          <h3>Viral Kachhadiya</h3>
+          <p class="position">Founder & CEO</p>
+          <p class="bio">
+            Former co-founder of Opendoor. Early staff at Spotify and Clearbit.
+          </p>
+        </div>
+        <div class="team-member">
+          <img src="/image4.png" alt="Viral Kachhadiya" />
+          <h3>Viral Kachhadiya</h3>
+          <p class="position">Founder & CEO</p>
+          <p class="bio">
+            Former co-founder of Opendoor. Early staff at Spotify and Clearbit.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="work-life">
+      <h2>
+        VizHance truly values work-life balance. We work hard and deliver, but
+        work-life balance is great.
+      </h2>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="image-box">
+          <img
+            src="./logo.png"
+            alt="VizHance Logo"
+            style="margin-bottom: 8px"
+          />
+          <!-- <p style="color: #666; font-size: 12px">ENHANCE YOUR BRANDING</p> -->
+        </div>
+        <div>
+          <h3>Location</h3>
+          <p>Orbit, Saroli Rd,<br />Punagam, Surat.</p>
+        </div>
+        <div>
+          <h3>Call Us</h3>
+          <p>+91 97126 99999</p>
+          <p>+91 94658 11658</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/about">About</a></li>
+            <!-- <li><a href="/faqs">FAQs</a></li> -->
+            <li><a href="/contact">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <div class="copyright">
+      <p class="copyright-text">
+        VizHance © Copyright 2023 All Rights Reserved.
+      </p>
+    </div>
+  </body>
+</html>

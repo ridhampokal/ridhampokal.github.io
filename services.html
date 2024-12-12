@@ -141,25 +141,33 @@
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
+        text-decoration: none;
       }
 
       .service-item:hover {
         color: #00ff9d;
       }
 
+      .service-item:hover .arrow {
+        color: #00ff9d;
+        border: 1px solid #00ff9d;
+      }
+
       .arrow {
-        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #000;
+        background: #fff;
+        border-radius: 50%;
+        cursor: pointer;
         display: flex;
-        justify-content: center;
         align-items: center;
-        height: 36px;
-        width: 36px;
-        padding: 1px;
-        border-radius: 50%; /* Correct circular shape */
+        justify-content: center;
         color: #666;
-        border: 1px solid rgba(0, 0, 0, 0.587);
-        line-height: 0; /* Ensures proper vertical alignment */
-        text-align: center; /* Centers the arrow symbol horizontally */
+      }
+
+      .arrow:hover {
+        border: 1px solid #00ff9d;
       }
 
       /* Stats Section */
@@ -374,8 +382,8 @@
   </head>
   <body>
     <nav class="navbar">
-      <a href="/" class="logo">
-        <img src="/Vizhance logo.png" alt="VizHance Logo" class="logo-img" />
+      <a href="index.html" class="logo">
+        <img src="Vizhance logo.png" alt="VizHance Logo" class="logo-img" />
       </a>
       <div class="nav-menu">
         <a href="./work.html">Work</a>
@@ -394,23 +402,23 @@
       <div class="hero-content">
         <h1>Innovation Meets Expertise In Our Range Of Services</h1>
       </div>
-      <img src="/image2.png" alt="Design Process" class="hero-image" />
+      <img src="image2.png" alt="Design Process" class="hero-image" />
     </section>
 
     <section class="services">
       <h2>Our Services</h2>
-      <div class="service-item">
+      <a href="logo design.html" class="service-item">
         <span>Logo Design</span>
         <span class="arrow">></span>
-      </div>
-      <div class="service-item">
+      </a>
+      <a href="branding.html" class="service-item">
         <span>Branding</span>
         <span class="arrow">></span>
-      </div>
-      <div class="service-item">
+      </a>
+      <a href="packaging.html" class="service-item">
         <span>Packaging Design</span>
         <span class="arrow">></span>
-      </div>
+      </a>
     </section>
 
     <section class="stats">
@@ -475,40 +483,40 @@
     <section class="clients">
       <div class="clients-header">
         <h2>Our Beloved Client</h2>
-        <a href="#" class="view-all">View all</a>
+        <a href="logo design.html" class="view-all">View all</a>
       </div>
       <div class="clients-grid">
         <!-- First row -->
         <div class="client-logo">
-          <img src="./Group 47.png" alt="Client Logo" />
+          <img src="Group 47.png" alt="Client Logo" />
         </div>
         <div class="client-logo">
-          <img src="./Group 47.png" alt="Client Logo" />
+          <img src="Group 47.png" alt="Client Logo" />
         </div>
         <div class="client-logo">
-          <img src="./Group 47.png" alt="Client Logo" />
+          <img src="Group 47.png" alt="Client Logo" />
         </div>
         <div class="client-logo">
-          <img src="./Group 47.png" alt="Client Logo" />
+          <img src="Group 47.png" alt="Client Logo" />
         </div>
         <div class="client-logo">
-          <img src="./Group 47.png" alt="Client Logo" />
+          <img src="Group 47.png" alt="Client Logo" />
         </div>
         <!-- Second row -->
         <div class="client-logo">
-          <img src="./Group 47.png" alt="Client Logo" />
+          <img src="Group 47.png" alt="Client Logo" />
         </div>
         <div class="client-logo">
-          <img src="./Group 47.png" alt="Client Logo" />
+          <img src="Group 47.png" alt="Client Logo" />
         </div>
         <div class="client-logo">
-          <img src="./Group 47.png" alt="Client Logo" />
+          <img src="Group 47.png" alt="Client Logo" />
         </div>
         <div class="client-logo">
-          <img src="./Group 47.png" alt="Client Logo" />
+          <img src="Group 47.png" alt="Client Logo" />
         </div>
         <div class="client-logo">
-          <img src="./Group 47.png" alt="Client Logo" />
+          <img src="Group 47.png" alt="Client Logo" />
         </div>
       </div>
     </section>
@@ -535,12 +543,12 @@
         <div>
           <h3>Quick Links</h3>
           <ul class="footer-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/work">Work</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
             <!-- <li><a href="/faqs">FAQs</a></li> -->
-            <li><a href="/contact">Contact us</a></li>
+            <li><a href="contact.html">Contact us</a></li>
           </ul>
         </div>
       </div>

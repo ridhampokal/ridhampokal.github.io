@@ -45,6 +45,12 @@
         color: #00ff9d;
       }
 
+      .logo-img {
+        max-height: 40px; /* Adjust the height of the logo */
+        width: auto;
+        display: block;
+      }
+
       .nav-menu {
         display: flex;
         gap: 2rem;
@@ -524,7 +530,9 @@
   </head>
   <body>
     <nav class="navbar">
-      <a href="/" class="logo">Viz<span>hance</span></a>
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="VizHance Logo" class="logo-img" />
+      </a>
       <div class="nav-menu">
         <a href="./work.html">Work</a>
         <a href="./services.html">Services</a>
@@ -594,14 +602,14 @@
           <h2>Our Projects</h2>
           <p>See what we've made for our clients.</p>
         </div>
-        <a href="#" class="view-all-btn">View all</a>
+        <a href="branding.html" class="view-all-btn">View all</a>
       </div>
 
       <div class="projects-container">
         <div class="project-card">
           <div class="project-image">
             <img
-              src="./aagiri cover.png"
+              src="aagiri cover.png"
               alt="AAGIRI fashion designs collage"
             />
           </div>
@@ -613,7 +621,7 @@
 
         <div class="project-card">
           <div class="project-image">
-            <img src="./aagiri cover.png" alt="FLIPCAB designs collage" />
+            <img src="Flipcab Cover.jpg" alt="FLIPCAB designs collage" />
           </div>
           <div class="project-info">
             <p>Graphic design & Branding</p>
@@ -622,7 +630,7 @@
         </div>
       </div>
     </section>
-
+    
     <section class="testimonials-section">
       <div class="testimonials-content">
         <div class="testimonials-label">// OUR CLIENTS</div>
@@ -631,7 +639,7 @@
         <div class="testimonials-grid">
           <div class="testimonial-card">
             <div class="testimonial-avatar">
-              <img src="/image1.png" alt="Viral Kachhadiya" />
+              <img src="image1.png" alt="Viral Kachhadiya" />
             </div>
             <h3 class="testimonial-name">Viral Kachhadiya</h3>
             <div class="testimonial-stars">★★★★★</div>
@@ -645,7 +653,7 @@
 
           <div class="testimonial-card">
             <div class="testimonial-avatar">
-              <img src="/image1.png" alt="Harsh Sojitra" />
+              <img src="image1.png" alt="Harsh Sojitra" />
             </div>
             <h3 class="testimonial-name">Harsh Sojitra</h3>
             <div class="testimonial-stars">★★★★★</div>
@@ -658,7 +666,7 @@
 
           <div class="testimonial-card">
             <div class="testimonial-avatar">
-              <img src="/image1.png" alt="Yash Rank" />
+              <img src="image1.png" alt="Yash Rank" />
             </div>
             <h3 class="testimonial-name">Yash Rank</h3>
             <div class="testimonial-stars">★★★★★</div>
